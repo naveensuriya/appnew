@@ -328,7 +328,7 @@ userapp.delete("/removehistory/:id",errorhandling(async(req,res)=>{
 
 userapp.get("/dish",errorhandling(async(req,res)=>{
     searchedfield=req.query.dishname
-   let data= await Dish.find({dishname:{$regex:searchedfield,$options:'$i'}}).exec()
+   let data= await Dish.find({dishname:{$regex:searchedfield,$options:'i'}}).exec()
 
     res.send({message:"data searched successfully",payload:data})
 }))
